@@ -15,6 +15,7 @@ NODES=(
 # 2. Models
 CHECKPOINT_MODELS=(
     "https://huggingface.co/SG161222/Realistic_Vision_V6.0_B1_noVAE/resolve/main/Realistic_Vision_V6.0_NV_B1.safetensors"
+    "https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V8_FP32.safetensors"
 )
 
 VAE_MODELS=(
