@@ -25,6 +25,7 @@ VAE_MODELS=(
 
 ESRGAN_MODELS=(
     "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
+    "https://huggingface.co/catbox/4x-UltraSharp/resolve/main/4x-UltraSharp.pth"
 )
 
 CONTROLNET_MODELS=(
