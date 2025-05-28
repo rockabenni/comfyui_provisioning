@@ -37,18 +37,33 @@ function provisioning_start() {
     provisioning_get_apt_packages
     provisioning_get_nodes
     provisioning_get_pip_packages
-    provisioning_get_models "${WORKSPACE}/storage/stable_diffusion/models/ckpt" "${CHECKPOINT_MODELS[@]}"
-    provisioning_get_models "${WORKSPACE}/storage/stable_diffusion/models/unet" "${UNET_MODELS[@]}"
-    provisioning_get_models "${WORKSPACE}/storage/stable_diffusion/models/lora" "${LORA_MODELS[@]}"
-    provisioning_get_models "${WORKSPACE}/storage/stable_diffusion/models/controlnet" "${CONTROLNET_MODELS[@]}"
-    provisioning_get_models "${WORKSPACE}/storage/stable_diffusion/models/vae" "${VAE_MODELS[@]}"
-    provisioning_get_models "${WORKSPACE}/storage/stable_diffusion/models/esrgan" "${ESRGAN_MODELS[@]}"
+    provisioning_get_models "${WORKSPACE}/ComfyUI/models/checkpoints" "${CHECKPOINT_MODELS[@]}"
+    provisioning_get_models "${WORKSPACE}/ComfyUI/models/unet" "${UNET_MODELS[@]}"
+    provisioning_get_models "${WORKSPACE}/ComfyUI/models/lora" "${LORA_MODELS[@]}"
+    provisioning_get_models "${WORKSPACE}/ComfyUI/models/controlnet" "${CONTROLNET_MODELS[@]}"
+    provisioning_get_models "${WORKSPACE}/ComfyUI/models/vae" "${VAE_MODELS[@]}"
+    provisioning_get_models "${WORKSPACE}/ComfyUI/models/esrgan" "${ESRGAN_MODELS[@]}"
     provisioning_print_end
 
     echo "🧱 Creating AI-Girl Studio structure in /workspace..."
     mkdir -p /workspace/apps/comfyui
     mkdir -p /workspace/apps/kohya_ss
     mkdir -p /workspace/data/lyni_love/{loras,datasets,trained,outputs,video,voice}
+    mkdir -p /workspace/ComfyUI/models/checkpoints
+    mkdir -p /workspace/ComfyUI/models/unet
+    mkdir -p /workspace/ComfyUI/models/lora
+    mkdir -p /workspace/ComfyUI/models/controlnet
+    mkdir -p /workspace/ComfyUI/models/vae
+    mkdir -p /workspace/ComfyUI/models/esrgan
+
+    echo "Erstelle Syncthing .stignore für Workspace..."
+    cat << 'EOF' > /workspace/.stignore
+(?d)^.*
+!data/
+!data/**
+!ComfyUI/models/
+!ComfyUI/models/**
+EOF
 
     echo "⬇️ Cloning kohya_ss into /workspace/apps/kohya_ss..."
     git clone https://github.com/bmaltais/kohya_ss /workspace/apps/kohya_ss
@@ -57,7 +72,7 @@ function provisioning_start() {
     echo "🧠 Creating /workspace/start_comfyui.sh..."
     cat << 'EOF' > /workspace/start_comfyui.sh
 #!/bin/bash
-cd /opt/ComfyUI
+cd /workspace/ComfyUI
 python3 main.py --listen 0.0.0.0 --port 3000 \
 --output-directory /workspace/data/lyni_love/outputs
 EOF
@@ -109,7 +124,7 @@ function provisioning_get_pip_packages() {
 function provisioning_get_nodes() {
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
-        path="/opt/ComfyUI/custom_nodes/${dir}"
+        path="${WORKSPACE}/ComfyUI/custom_nodes/${dir}"
         requirements="${path}/requirements.txt"
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then
