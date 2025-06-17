@@ -10,23 +10,50 @@ NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/continue-revolution/ComfyUI-AnimateDiff"
+    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    "https://github.com/Fannovel16/comfyui_controlnet_aux"
+    "https://github.com/WASasquatch/was-node-suite-comfyui"
+    "https://github.com/catacolabs/ComfyUI-Catalog"
+    "https://github.com/Derfuu/ComfyUI-Manager-Civitai-Helper"
 )
+
 
 # 2. Models
 CHECKPOINT_MODELS=(
+    "https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V9_FP16.safetensors"
+    "https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V11_FP16.safetensors"
 )
 
 VAE_MODELS=(
+    "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
 )
 
 ESRGAN_MODELS=(
+    "https://civitai.com/api/download/models/130071?type=Model&format=SafeTensor&size=full"  # 4x-UltraSharp
+    "https://huggingface.co/uwg/upscaler/resolve/main/4x-AnimeSharp.pth"                     # 4x-AnimeSharp als Alternativtest
+    "https://huggingface.co/uwg/upscaler/resolve/main/3x_RealisticRescaler.pth"              # 3x für Realistic
+    "https://huggingface.co/uwg/upscaler/resolve/main/2x_FaceDetailerESRGAN.pth"             # 2x Face
 )
 
 CONTROLNET_MODELS=(
+    # OpenPose
+    "https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_openpose.pth"
+    
+    # Depth (tiefenbasierte Konturen)
+    "https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_depth.pth"
+
+    # Canny (Umriss)
+    "https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_canny.pth"
+
+    # SoftEdge (glattere Kanten)
+    "https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_softedge.pth"
 )
 
 UNET_MODELS=()
-LORA_MODELS=()
+LORA_MODELS=(
+    "https://huggingface.co/h94/IP-Adapter/resolve/main/ip-adapter_sd15.safetensors"
+    "https://huggingface.co/h94/IP-Adapter/resolve/main/ip-adapter-plus_sd15.safetensors"
+)
 
 function provisioning_start() {
     if [[ ! -d /opt/environments/python ]]; then export MAMBA_BASE=true; fi
