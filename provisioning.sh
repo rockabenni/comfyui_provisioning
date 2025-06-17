@@ -23,16 +23,12 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V9_FP16.safetensors"
     "https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V11_FP16.safetensors"
     "https://huggingface.co/emiway/epicrealism/resolve/main/epiCRealismXL_v6.safetensors"
-)
-CHECKPOINT_MODELS+=(
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
 
 VAE_MODELS=(
     "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
-)
-VAE_MODELS+=(
     "https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl-vae-fp16-fix.safetensors"
 )
 
