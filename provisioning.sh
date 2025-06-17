@@ -10,21 +10,12 @@ NODES=(
 )
 
 # 2. Models
-CHECKPOINT_MODELS=(
-)
-
-VAE_MODELS=(
-)
-
-ESRGAN_MODELS=(
-)
-
-CONTROLNET_MODELS=(
-)
-
+CHECKPOINT_MODELS=()
+VAE_MODELS=()
+ESRGAN_MODELS=()
+CONTROLNET_MODELS=()
 UNET_MODELS=()
-LORA_MODELS=(
-)
+LORA_MODELS=()
 
 function provisioning_download() {
     local url="$1"
@@ -77,16 +68,24 @@ function provisioning_start() {
     provisioning_get_models "${WORKSPACE}/ComfyUI/models/esrgan" "${ESRGAN_MODELS[@]}"
     provisioning_print_end
 
-    echo "🧱 Creating directory structure..."
-    mkdir -p /workspace/apps/comfyui
-    mkdir -p /workspace/apps/kohya_ss
-    mkdir -p /workspace/data/lyni_love/{loras,datasets,trained,outputs,video,voice}
+    echo "⬇️ Setting up ComfyUI if not exists..."
+    if [[ ! -d /workspace/ComfyUI ]]; then
+        git clone https://github.com/comfyanonymous/ComfyUI.git /workspace/ComfyUI
+        cd /workspace/ComfyUI
+        pip_install -r requirements.txt
+    else
+        echo "✔️ ComfyUI already exists – skipping clone"
+    fi
 
     echo "⬇️ Setting up kohya_ss if not exists..."
     if [[ ! -d /workspace/apps/kohya_ss ]]; then
         git clone https://github.com/bmaltais/kohya_ss /workspace/apps/kohya_ss
         pip_install -r /workspace/apps/kohya_ss/requirements.txt
     fi
+
+    echo "🧱 Creating directory structure..."
+    mkdir -p /workspace/apps/comfyui
+    mkdir -p /workspace/data/lyni_love/{loras,datasets,trained,outputs,video,voice}
 
     echo "🔧 Writing startup scripts..."
     cat << 'EOF' > /workspace/start_comfyui.sh
