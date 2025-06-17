@@ -15,6 +15,11 @@ NODES=(
     "https://github.com/WASasquatch/was-node-suite-comfyui"
     "https://github.com/catacolabs/ComfyUI-Catalog"
     "https://github.com/Derfuu/ComfyUI-Manager-Civitai-Helper"
+    "https://github.com/ltdrdata/ComfyUI-FaceRestoration"
+    "https://github.com/ssitu/ComfyUI_TiledDiffusion"
+    "https://github.com/cubiq/ComfyUI_LCM"
+    "https://github.com/Fannovel16/IPAdapter-ComfyUI"
+    "https://github.com/ashen-sensored/ComfyUI-RefControl"
 )
 
 
