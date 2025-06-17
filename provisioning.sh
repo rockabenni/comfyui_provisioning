@@ -7,49 +7,23 @@ PIP_PACKAGES=("jupyterlab")
 
 # 1. Custom Nodes
 NODES=(
-    "https://github.com/ltdrdata/ComfyUI-Manager"
-    "https://github.com/cubiq/ComfyUI_essentials"
-    "https://github.com/continue-revolution/ComfyUI-AnimateDiff"
-    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
-    "https://github.com/Fannovel16/comfyui_controlnet_aux"
-    "https://github.com/WASasquatch/was-node-suite-comfyui"
-    "https://github.com/catacolabs/ComfyUI-Catalog"
-    "https://github.com/Derfuu/ComfyUI-Manager-Civitai-Helper"
-    "https://github.com/ltdrdata/ComfyUI-FaceRestoration"
-    "https://github.com/ssitu/ComfyUI_TiledDiffusion"
-    "https://github.com/cubiq/ComfyUI_LCM"
-    "https://github.com/Fannovel16/IPAdapter-ComfyUI"
-    "https://github.com/ashen-sensored/ComfyUI-RefControl"
 )
 
 # 2. Models
 CHECKPOINT_MODELS=(
-  "https://civitai.com/api/download/models/1522905?type=Model&format=SafeTensor&size=pruned&fp=fp16"
 )
 
 VAE_MODELS=(
-    "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
-    "https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl-vae-fp16-fix.safetensors"
 )
 
 ESRGAN_MODELS=(
-    "https://civitai.com/api/download/models/130071?type=Model&format=SafeTensor&size=full"
-    "https://huggingface.co/uwg/upscaler/resolve/main/4x-AnimeSharp.pth"
-    "https://huggingface.co/uwg/upscaler/resolve/main/3x_RealisticRescaler.pth"
-    "https://huggingface.co/uwg/upscaler/resolve/main/2x_FaceDetailerESRGAN.pth"
 )
 
 CONTROLNET_MODELS=(
-    "https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_openpose.pth"
-    "https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_depth.pth"
-    "https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_canny.pth"
-    "https://huggingface.co/lllyasviel/ControlNet/resolve/main/models/control_sd15_softedge.pth"
 )
 
 UNET_MODELS=()
 LORA_MODELS=(
-    "https://huggingface.co/h94/IP-Adapter/resolve/main/ip-adapter_sd15.safetensors"
-    "https://huggingface.co/h94/IP-Adapter/resolve/main/ip-adapter-plus_sd15.safetensors"
 )
 
 function provisioning_download() {
