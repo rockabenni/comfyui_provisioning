@@ -20,9 +20,9 @@ NODES=(
 
 # 2. Models
 CHECKPOINT_MODELS=(
-    "https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V9_FP16.safetensors"
-    "https://huggingface.co/cyberdelia/CyberRealistic/resolve/main/CyberRealistic_V11_FP16.safetensors"
-    "https://huggingface.co/emiway/epicrealism/resolve/main/epiCRealismXL_v6.safetensors"
+    "https://huggingface.co/cyberdelia/CyberRealisticPony/resolve/main/CyberRealistic_V9_FP16.safetensors"
+    "https://huggingface.co/cyberdelia/CyberRealisticPony/resolve/main/CyberRealistic_V11_FP16.safetensors"
+    "https://huggingface.co/poor7/Models/resolve/main/epicrealismXL_vxviLastfameRealism.safetensors"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
